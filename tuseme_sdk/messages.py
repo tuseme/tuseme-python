@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
 
 if TYPE_CHECKING:
     from tuseme_sdk.http_client import HttpClient
@@ -12,6 +12,7 @@ if TYPE_CHECKING:
 @dataclass
 class SendResponse:
     """Response from sending a message."""
+
     success: bool
     message_id: str = ""
     batch_id: str = ""
@@ -28,6 +29,7 @@ class SendResponse:
 @dataclass
 class MessageStatus:
     """Response from getting message status."""
+
     message_id: str = ""
     status: str = ""
     recipient: str = ""

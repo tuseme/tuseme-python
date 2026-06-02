@@ -1,7 +1,7 @@
 """Low-level HTTP transport with authentication and retry logic."""
 
-import time
 import logging
+import time
 from typing import Any, Dict, Optional
 
 import requests
@@ -41,10 +41,12 @@ class HttpClient:
         self.max_retries = max_retries
 
         self._session = requests.Session()
-        self._session.headers.update({
-            "Content-Type": "application/json",
-            "User-Agent": "tuseme-python/1.0.0",
-        })
+        self._session.headers.update(
+            {
+                "Content-Type": "application/json",
+                "User-Agent": "tuseme-python/1.0.0",
+            }
+        )
 
         # Token state
         self._access_token: Optional[str] = None
@@ -124,7 +126,11 @@ class HttpClient:
                         wait = exc.retry_after
                     logger.warning(
                         "Request to %s failed (attempt %d/%d), retrying in %.1fs: %s",
-                        path, attempt, self.max_retries, wait, exc,
+                        path,
+                        attempt,
+                        self.max_retries,
+                        wait,
+                        exc,
                     )
                     time.sleep(wait)
 

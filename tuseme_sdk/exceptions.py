@@ -12,11 +12,13 @@ class TusemeError(Exception):
 
 class AuthenticationError(TusemeError):
     """Raised when authentication fails (invalid credentials or expired token)."""
+
     pass
 
 
 class ValidationError(TusemeError):
     """Raised when the API rejects the request due to invalid parameters."""
+
     pass
 
 
@@ -30,9 +32,11 @@ class RateLimitError(TusemeError):
 
 class ServerError(TusemeError):
     """Raised when the API returns a 5xx error."""
+
     pass
 
 
 class NetworkError(TusemeError):
     """Raised when a network-level error occurs (timeout, DNS, etc.)."""
+
     pass

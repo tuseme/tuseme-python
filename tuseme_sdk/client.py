@@ -1,6 +1,6 @@
 """Top-level Tuseme API client."""
 
-from tuseme_sdk.http_client import HttpClient, DEFAULT_BASE_URL, DEFAULT_TIMEOUT, MAX_RETRIES
+from tuseme_sdk.http_client import DEFAULT_BASE_URL, DEFAULT_TIMEOUT, MAX_RETRIES, HttpClient
 from tuseme_sdk.messages import Messages
 
 

@@ -1,6 +1,5 @@
-import responses
-
 import pytest
+import responses
 
 from tuseme_sdk.exceptions import (
     AuthenticationError,
@@ -15,7 +14,11 @@ BASE = "https://api.tuseme.co.ke/api/v1"
 
 @pytest.fixture
 def http():
-    return HttpClient(api_key="tk_test_key", api_secret="sk_test_secret")
+    return HttpClient(
+        api_key="tk_test_key",
+        api_secret="sk_test_secret",
+        max_retries=1,
+    )
 
 
 def _mock_auth():
@@ -89,12 +92,7 @@ def test_rate_limit_error(http):
 
 
 @responses.activate
-def test_server_error():
-    http = HttpClient(
-        api_key="tk_test_key",
-        api_secret="sk_test_secret",
-        max_retries=1,
-    )
+def test_server_error(http):
     _mock_auth()
     responses.add(
         responses.GET,

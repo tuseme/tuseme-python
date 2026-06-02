@@ -22,11 +22,11 @@ __version__ = "1.0.0"
 
 from tuseme_sdk.client import TusemeClient  # noqa: F401
 from tuseme_sdk.exceptions import (  # noqa: F401
-    TusemeError,
     AuthenticationError,
-    ValidationError,
     RateLimitError,
     ServerError,
+    TusemeError,
+    ValidationError,
 )
 
 __all__ = [
